@@ -47,7 +47,14 @@ module.exports = ({ sequelize }, DataTypes) => {
       autoIncrement: true
     },
     content: DataTypes.TEXT,
-    rating: DataTypes.INTEGER
+    rating: DataTypes.INTEGER,
+    starRating: {
+      type: DataTypes.INTEGER,
+      validate: {
+        min: 1,
+        max: 5
+      }
+    }
     // ... other review attributes
   }, {
     sequelize,
