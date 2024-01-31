@@ -11,9 +11,20 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import Header from './Header'
 import { CircleUserRound } from 'lucide-react'
+import StarRating from '@/components/StarRating'
 // import Link from 'next/link'
 
 export default () => {
+  const [rating, setRating] = useState(0);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Submitting the form with the selected rating and comment
+    event.preventDefault();
+    const comment = document.getElementById('comment').value;
+    submitRating({ rating, comment }); // Function to be implemented
+  };
+
   return (
     <>
       <Header />
@@ -51,6 +62,7 @@ export default () => {
                 </div> */}
               </div>
               <form>
+                <StarRating onRatingChange={(rating) => setRating(rating)} />
                 <div className="grid grid-cols-1 gap-4 mb-4">
                   <div className="flex flex-col">
                     <Label htmlFor="comment">Comment</Label>

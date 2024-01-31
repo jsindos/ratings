@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const router = require('express').Router()
+const ratingsRoutes = require('./routes/ratingsRoutes')
 
 const db = require('./db.js')
 
@@ -24,5 +25,6 @@ fs
 router.get('/', (req, res) => {
   return res.send('OK!')
 })
+router.use('/ratings', ratingsRoutes)
 
 module.exports = router
